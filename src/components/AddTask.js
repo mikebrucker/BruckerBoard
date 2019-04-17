@@ -67,6 +67,7 @@ class AddTask extends Component {
             value={this.state.text}
           />
           <div className="add-task-radio">
+            <span>Priority:</span>
             <label>
               <input
                 type="radio"

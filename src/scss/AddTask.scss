@@ -3,7 +3,7 @@
   overflow: auto;
   text-align: center;
   width: 100%;
-  min-width: 720px;
+  min-width: 756px;
   height: 0;
   position: relative;
   transition: height 0.4s ease-in-out;
@@ -23,15 +23,22 @@
     margin: 0;
   }
 
+  label {
+    margin: 6px;
+  }
+
   .add-task-input {
-    margin: 0 auto 6px;
+    margin: 0 auto;
     width: 70%;
     display: block;
     font-size: 1.2em;
   }
+
   .add-task-radio {
-    label {
-      margin: 4px;
+    margin: 10px;
+
+    span {
+      font-weight: bold;
     }
   }
 
