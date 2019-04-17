@@ -9,9 +9,11 @@ const Completed = ({
   deleteTask
 }) => {
   return (
-    <section className="Completed">
-      <button onClick={showAddTask.bind(this, "completed")}>Add</button>
-      <div>Completed</div>
+    <section className="BoardCategories Completed">
+      <button onClick={showAddTask.bind(this, "completed")}>
+        Add Completed
+      </button>
+      <h2>Completed</h2>
       <Tasks
         tasks={tasks}
         moveTaskLeft={moveTaskLeft}

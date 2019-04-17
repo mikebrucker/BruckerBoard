@@ -9,9 +9,9 @@ const Backlog = ({
   deleteTask
 }) => {
   return (
-    <section className="Backlog">
-      <button onClick={showAddTask.bind(this, "backlog")}>Add</button>
-      <div>Backlog</div>
+    <section className="BoardCategories Backlog">
+      <button onClick={showAddTask.bind(this, "backlog")}>Add Backlog</button>
+      <h2>Backlog</h2>
       <Tasks
         tasks={tasks}
         moveTaskLeft={moveTaskLeft}

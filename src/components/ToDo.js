@@ -9,9 +9,9 @@ const ToDo = ({
   deleteTask
 }) => {
   return (
-    <section className="ToDo">
-      <button onClick={showAddTask.bind(this, "todo")}>Add</button>
-      <div>ToDo</div>
+    <section className="BoardCategories ToDo">
+      <button onClick={showAddTask.bind(this, "todo")}>Add ToDo</button>
+      <h2>ToDo</h2>
       <Tasks
         tasks={tasks}
         moveTaskLeft={moveTaskLeft}

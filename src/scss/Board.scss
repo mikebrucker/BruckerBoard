@@ -4,78 +4,72 @@
 
 .Board {
   // sections are the 4 main parts - backlog, todo, inprogress, completed
-  box-sizing: border-box;
+  text-align: center;
   height: 100vh;
   padding: 0;
   border: none;
+  overflow-x: auto;
+  vertical-align: top;
+  white-space: nowrap;
+
   section {
     margin: 0;
     margin-bottom: -3px;
     padding: 0;
     width: 25%;
+    min-width: 180px;
     height: 100%;
     display: inline-block;
     overflow: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  button {
+    outline: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    margin: 4px;
+  }
+
+  button:hover {
+    background-color: gainsboro;
   }
 }
 
-.Task {
-  .left-button {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-  }
-  .right-button {
-    position: absolute;
-    top: 2px;
-    right: 2px;
-  }
-  .delete-button {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  position: relative;
-  margin: 4px;
-  border: 2px solid black;
-  padding: 20px;
-  background-color: antiquewhite;
-}
-
-.AddTask {
-  background-color: aquamarine;
-  display: none;
-  text-align: center;
-  height: 20vh;
-  position: relative;
-  textarea {
-    margin: 0 auto;
-    width: 90%;
-    display: block;
-  }
+.BoardCategories {
+  transition: height 0.4s ease-in-out;
   h2 {
-    margin: 0;
-  }
-  .hide-add-task-button {
-    position: absolute;
-    top: 2px;
-    right: 2px;
+    position: sticky;
+    top: 0px;
+    z-index: 10;
   }
 }
 
 .Backlog {
+  h2 {
+    background-color: red;
+  }
   background-color: red;
 }
 
 .ToDo {
+  h2 {
+    background-color: yellow;
+  }
   background-color: yellow;
 }
 
 .InProgress {
+  h2 {
+    background-color: yellowgreen;
+  }
   background-color: yellowgreen;
 }
 
 .Completed {
+  h2 {
+    background-color: green;
+  }
   background-color: green;
 }

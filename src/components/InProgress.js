@@ -9,9 +9,11 @@ const InProgress = ({
   deleteTask
 }) => {
   return (
-    <section className="InProgress">
-      <button onClick={showAddTask.bind(this, "inprogress")}>Add</button>
-      <div>InProgress</div>
+    <section className="BoardCategories InProgress">
+      <button onClick={showAddTask.bind(this, "inprogress")}>
+        Add InProgress
+      </button>
+      <h2>InProgress</h2>
       <Tasks
         tasks={tasks}
         moveTaskLeft={moveTaskLeft}

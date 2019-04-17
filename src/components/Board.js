@@ -16,6 +16,7 @@ class Board extends Component {
   };
 
   componentDidMount() {
+    // if board is saved to localStorage it will load
     if (localStorage.getItem("brucker-board")) {
       this.setState(JSON.parse(localStorage.getItem("brucker-board")));
     } else {
@@ -23,6 +24,7 @@ class Board extends Component {
     }
   }
 
+  // save all tasks to localStorage for use after closing page, fires after each task
   autoSave = () => {
     localStorage.setItem("brucker-board", JSON.stringify(this.state));
   };
@@ -36,23 +38,27 @@ class Board extends Component {
     );
   };
 
+  // shows the AddTask component from the top and shrinks the columns
   showAddTask = type => {
     this.setState({
       typeToAdd: type
     });
-    document.getElementById("AddTask").style.display = "block";
-    document.getElementById("Board").style.height = "80vh";
+    document.getElementById("AddTask").style.height = "30vh";
+    [...document.getElementsByClassName("BoardCategories")].forEach(
+      elem => (elem.style.height = "70vh")
+    );
   };
 
+  // hides the AddTask component from the top and expands the columns to fill the screen
   hideAddTask = () => {
-    document.getElementById("AddTask").style.display = "none";
-    document.getElementById("Board").style.height = "100vh";
+    document.getElementById("AddTask").style.height = "0vh";
+    [...document.getElementsByClassName("BoardCategories")].forEach(
+      elem => (elem.style.height = "100vh")
+    );
   };
 
   moveTaskLeft = task => {
-    const newTask = {};
-    newTask.text = task.text;
-    newTask.date = task.date;
+    const newTask = { ...task };
     switch (task.type) {
       case "todo":
         newTask.type = "backlog";
@@ -80,9 +86,7 @@ class Board extends Component {
   };
 
   moveTaskRight = task => {
-    const newTask = {};
-    newTask.text = task.text;
-    newTask.date = task.date;
+    const newTask = { ...task };
     switch (task.type) {
       case "backlog":
         newTask.type = "todo";

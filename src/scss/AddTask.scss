@@ -1,0 +1,43 @@
+.AddTask {
+  background-color: aquamarine;
+  overflow: auto;
+  text-align: center;
+  width: 100%;
+  min-width: 720px;
+  height: 0;
+  position: relative;
+  transition: height 0.4s ease-in-out;
+
+  button {
+    outline: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    margin: 4px;
+  }
+
+  button:hover {
+    background-color: gainsboro;
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  .add-task-input {
+    margin: 0 auto 6px;
+    width: 70%;
+    display: block;
+    font-size: 1.2em;
+  }
+  .add-task-radio {
+    label {
+      margin: 4px;
+    }
+  }
+
+  .hide-add-task-button {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+  }
+}

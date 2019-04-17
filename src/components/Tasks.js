@@ -1,38 +1,52 @@
 import React from "react";
 import Moment from "react-moment";
+import "../scss/Task.scss";
 
 const Tasks = ({ tasks, moveTaskLeft, moveTaskRight, deleteTask }) => {
   const tasksMap =
     tasks &&
     tasks.map(task => {
+      const taskPriority =
+        task.priority && task.priority === "Medium"
+          ? "task-priority-medium"
+          : task.priority === "High"
+          ? "task-priority-high"
+          : "task-priority-low";
+
       return (
         <div className="Task" key={task.date}>
-          <div>
-            {task.type !== "backlog" ? (
-              <button
-                className="left-button"
-                onClick={moveTaskLeft.bind(this, task)}
-              >
-                &lt;
-              </button>
-            ) : null}
-            {task.text}
-            {task.type !== "completed" ? (
-              <button
-                className="right-button"
-                onClick={moveTaskRight.bind(this, task)}
-              >
-                &gt;
-              </button>
-            ) : null}
-            <button
-              className="delete-button"
-              onClick={deleteTask.bind(this, task)}
-            >
-              &times;
-            </button>
+          <div className={taskPriority}>
+            <div>
+              {task.type !== "backlog" ? (
+                <button
+                  className="left-button"
+                  onClick={moveTaskLeft.bind(this, task)}
+                >
+                  &larr;
+                </button>
+              ) : null}
+              {task.type !== "completed" ? (
+                <button
+                  className="right-button"
+                  onClick={moveTaskRight.bind(this, task)}
+                >
+                  &rarr;
+                </button>
+              ) : null}
+              <div>
+                <button
+                  className="delete-button"
+                  onClick={deleteTask.bind(this, task)}
+                >
+                  &times;
+                </button>
+              </div>
+              {task.text}
+            </div>
+            <div className="moment">
+              <Moment format="YYYY/MM/DD hh:mma">{task.date}</Moment>
+            </div>
           </div>
-          <Moment format="YYYY/MM/DD">{task.date}</Moment>
         </div>
       );
     });
